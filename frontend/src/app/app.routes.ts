@@ -13,12 +13,12 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'login',
+    path: 'auth/login',
     component: LoginComponent,
     canActivate: [publicGuard()]
   },
   {
-    path: 'record',
+    path: 'auth/record',
     component: RecordComponent,
     canActivate: [publicGuard()]
   },

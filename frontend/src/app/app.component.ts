@@ -13,7 +13,7 @@ import { MenuService } from './shared/menu.service';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  title = 'frontend';
+  title = 'Frontend';
 
 
   constructor(public menuService: MenuService) {}
