@@ -50,7 +50,7 @@ export class AuthService {
     return await this.prismaService.users.findMany();
   }
 
-  async signup(login: string, password: string) {
+  async record(login: string, password: string) {
     try {
       const userFound = await this.prismaService.users.findUnique({
         where: {

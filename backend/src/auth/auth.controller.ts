@@ -1,11 +1,20 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Post,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { Public } from './guards/auth.guard';
 
 interface userDTO {
   login: string;
   password: string;
 }
 
+@Public()
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
@@ -22,9 +31,9 @@ export class AuthController {
   }
 
   @HttpCode(HttpStatus.CREATED)
-  @Post('register')
+  @Post('record')
   register(@Body() user: userDTO) {
     console.log(user);
-    return this.authService.signup(user.login, user.password);
+    return this.authService.record(user.login, user.password);
   }
 }
