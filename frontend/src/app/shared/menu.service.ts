@@ -21,7 +21,7 @@ export class MenuService {
   private _currentUrl = signal('');
 
   // Rutas donde el menú completo no se muestra
-  private restrictedRoutes = ['/login'];//Se puede agregar más rutas aquí
+  private restrictedRoutes = ['/login', '/record'];//Se puede agregar más rutas aquí
 
   private menuItems: MenuItem[] = [
     {
