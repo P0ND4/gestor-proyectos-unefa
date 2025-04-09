@@ -16,7 +16,7 @@ export class AuthService {
 
   login(login: String, password: String):Observable<any> {
     return this._http
-      .post(`${environment.API_URL}/login`,{
+      .post(`${environment.API_URL}/auth/login`,{
         login,
         password,
       })
@@ -29,7 +29,7 @@ export class AuthService {
 
   record(login: String, password: String):Observable<any> {
     return this._http
-      .post(`${environment.API_URL}/record`,{
+      .post(`${environment.API_URL}/auth/record`,{
         login,
         password,
       })
