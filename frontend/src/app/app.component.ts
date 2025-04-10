@@ -17,6 +17,6 @@ export class AppComponent implements OnInit {
   constructor(public menuService: MenuService) {}
 
   ngOnInit(): void {
-    initFlowbite(); // Inicializa Flowbite
+    initFlowbite();
   }
 }
