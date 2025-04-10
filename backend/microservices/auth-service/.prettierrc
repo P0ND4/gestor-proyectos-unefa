@@ -1,0 +1,6 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "endOfLine": "crlf",
+  "_comentario": "Ejecuta Prettier en tu proyecto para formatear los archivos: <npx prettier --write .>"
+}
