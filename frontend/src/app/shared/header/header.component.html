@@ -3,49 +3,91 @@
   <div class="flex justify-between items-center h-16 px-4">
     <!-- Sección Izquierda - Botón del Menú -->
     <div class="flex items-center">
-
-      <button #sidebar (click)="menuService.toggleMenu()" (mouseenter)="menuService.expandMenu()" class="p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      <button
+        #sidebar
+        (click)="menuService.toggleMenu()"
+        (mouseenter)="menuService.expandMenu()"
+        class="p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
         </svg>
       </button>
 
       <a routerLink="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Gestor Proyecto</span>
+        <img
+          src="https://flowbite.com/docs/images/logo.svg"
+          class="h-8"
+          alt="Flowbite Logo"
+        />
+        <span
+          class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+          >Gestor Proyecto</span
+        >
       </a>
     </div>
 
     <!-- Sección Derecha - Botón Login -->
-    <div routerLink="login" class="flex items-center" [class.hidden]="menuService.isRestrictedRoute()">
-      <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+    <div
+      class="flex items-center"
+      [class.hidden]="menuService.isRestrictedRoute()"
+    >
+      <button routerLink="auth/login" class=" mx-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
         Login
+      </button>
+      <button routerLink="auth/record" class=" px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+        Record
       </button>
     </div>
   </div>
 </nav>
 
 <!-- Menú Lateral -->
-<div #sidebar class="fixed left-0 top-16 h-full bg-white dark:bg-gray-800 shadow-lg transition-all duration-300 z-40"
-     [class.w-64]="menuService.isExpanded()"
-     [class.w-16]="!menuService.isExpanded()"
-     [class.hidden]="menuService.isRestrictedRoute() && !menuService.isToggled()"
-     (mouseenter)="!menuService.isRestrictedRoute() && menuService.expandMenu()"
-     (mouseleave)="!menuService.isRestrictedRoute() && menuService.collapseMenu()">
-
+<div
+  #sidebar
+  class="fixed left-0 top-16 h-full bg-white dark:bg-gray-800 shadow-lg transition-all duration-300 z-40"
+  [class.w-64]="menuService.isExpanded()"
+  [class.w-16]="!menuService.isExpanded()"
+  [class.hidden]="menuService.isRestrictedRoute() && !menuService.isToggled()"
+  (mouseenter)="!menuService.isRestrictedRoute() && menuService.expandMenu()"
+  (mouseleave)="!menuService.isRestrictedRoute() && menuService.collapseMenu()"
+>
   <div class="p-4 space-y-4">
-
     @for (item of menuService.visibleMenuItems(); track item.id) {
-      <!-- Ítem -->
-      <a href="#" class="flex items-center space-x-2 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
-        <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="item.icon"/>
-        </svg>
-        @if (menuService.isExpanded()){
-          <span class="text-gray-700 dark:text-gray-200 whitespace-nowrap">{{item.label}}</span>
-        }
-      </a>
+    <!-- Ítem -->
+    <a
+      href="#"
+      class="flex items-center space-x-2 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+    >
+      <svg
+        class="w-6 h-6 text-gray-600 dark:text-gray-300"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          [attr.d]="item.icon"
+        />
+      </svg>
+      @if (menuService.isExpanded()){
+      <span class="text-gray-700 dark:text-gray-200 whitespace-nowrap">{{
+        item.label
+      }}</span>
+      }
+    </a>
     }
   </div>
 </div>
-
