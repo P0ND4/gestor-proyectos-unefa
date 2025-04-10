@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
@@ -10,7 +10,7 @@ interface LoginForm {
 
 @Component({
   selector: 'app-login',
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   standalone: true,
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
