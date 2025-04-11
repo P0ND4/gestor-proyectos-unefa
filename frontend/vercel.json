@@ -1,0 +1,17 @@
+{
+  "name": "frontend",
+  "version": 2,
+  "devCommand": "node dist/frontend/server/server.mjs",
+  "builds": [
+    {
+      "src": "dist/frontend/server/server.mjs",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/frontend/server/server.mjs"
+    }
+  ]
+}
