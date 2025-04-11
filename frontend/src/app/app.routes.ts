@@ -5,7 +5,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RecordComponent } from './auth/record/record.component';
 import { privateGuard, publicGuard } from './shared/guards/auth.guard';
 
-
 export const routes: Routes = [
   {
     path: '',
@@ -15,16 +14,16 @@ export const routes: Routes = [
   {
     path: 'auth/login',
     component: LoginComponent,
-    canActivate: [publicGuard()]
+    canActivate: [publicGuard()],
   },
   {
     path: 'auth/record',
     component: RecordComponent,
-    canActivate: [publicGuard()]
+    canActivate: [publicGuard()],
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [privateGuard()],
-  }
+  },
 ];
