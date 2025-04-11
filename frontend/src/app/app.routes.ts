@@ -9,7 +9,6 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    pathMatch: 'full',
   },
   {
     path: 'auth/login',
@@ -25,5 +24,9 @@ export const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [privateGuard()],
+  },
+  {
+    path: '**',
+    component: HomeComponent,
   },
 ];
